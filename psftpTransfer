@@ -1,0 +1,13 @@
+lcd "E:/Raspberry/21 Projekte/light"
+cd /home/pi/
+!plink.exe -ssh raspi-bett -batch sudo systemctl stop light.service
+rm /home/pi/light/*
+put light.py /home/pi/light/light.py
+put gpio_event.py /home/pi/light/gpio_event.py
+put led_animations.py /home/pi/light/led_animations.py
+put install_service.sh /home/pi/light/install_service.sh
+put light.service /home/pi/light/light.service
+put requirements.txt /home/pi/light/requirements.txt
+chmod 755 /home/pi/light/light.py
+chmod 755 /home/pi/light/install_service.sh
+!plink.exe -ssh raspi-bett -batch sudo /bin/bash /home/pi/light/install_service.sh

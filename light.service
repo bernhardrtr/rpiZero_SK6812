@@ -1,0 +1,15 @@
+[Unit]
+Description=SK6812 Light Application
+After=network.target
+
+[Service]
+ExecStart=sudo /usr/bin/env python3 light.py
+WorkingDirectory=/home/pi/light/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target
